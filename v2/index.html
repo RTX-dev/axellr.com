@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio d'Axel Leroy, en mode terminal. Étudiant en L2 informatique à Brest — développement web, systèmes, réseaux, sécurité. Tapez help." />
+  <title>Axel Leroy — ~/portfolio</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230c0b09'/><text x='50' y='72' font-size='58' text-anchor='middle' fill='%23e8490f' font-family='monospace' font-weight='bold'>&gt;_</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- Version CLI du portfolio. Le JS ne fait qu'insérer du contenu statique
+     que j'ai écrit moi-même ; ce que vous tapez n'est jamais interprété
+     en HTML. Testez "sudo hire-me" ou "neofetch". -->
+
+<main class="term">
+  <div class="term-bar">
+    <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+    <span class="term-title">axel@leroy — ~/portfolio — bash</span>
+    <span class="dots-filler" aria-hidden="true"></span>
+  </div>
+  <div class="term-scroll" id="termScroll" role="log" aria-live="polite">
+    <div class="term-out" id="termOut"></div>
+    <div class="term-in">
+      <label class="prompt" for="termInput">axel@leroy:~$</label>
+      <input id="termInput" type="text" autocomplete="off" autocapitalize="off"
+             spellcheck="false" aria-label="Entrée de commande" />
+    </div>
+  </div>
+</main>
+
+<noscript>
+  <div class="nojs">
+    <p>Ce portfolio est un terminal interactif : il a besoin de JavaScript.
+       En attendant, l'essentiel :</p>
+    <p>Axel Leroy — étudiant en L2 informatique à Brest (UBO).
+       BTS SIO option SLAM (AFTEC Rennes, 2025), stages chez LERY Technologie :
+       dev PHP (Laravel &amp; MySQL, agent IA sur Ollama) et support N1/N2
+       (Windows, GLPI, GPO). Trois certifications Cisco.</p>
+    <p>
+      <a href="mailto:axell29@protonmail.com">axell29@protonmail.com</a> ·
+      <a href="https://gitlab.com/axellr">gitlab.com/axellr</a> ·
+      <a href="https://linkedin.com/in/axel-leroy-it">linkedin.com/in/axel-leroy-it</a> ·
+      <a href="../index.html">version graphique du portfolio</a>
+    </p>
+  </div>
+</noscript>
+
+<script src="main.js" defer></script>
+</body>
+</html>

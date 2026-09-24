@@ -1,0 +1,211 @@
+/* ============================================================
+   Portfolio v2 — full CLI.
+   Un terminal, une invite de commande, zéro dépendance.
+   Palette héritée de la v1 : encre, papier, vermillon.
+   ============================================================ */
+
+:root {
+  --bg: #0c0b09;
+  --panel: #131210;
+  --border: #2a2620;
+  --paper: #f2efe8;
+  --muted: #75705f;
+  --accent: #e8490f;
+  --accent-dim: rgba(232, 73, 15, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 2.5vmin;
+  background: var(--bg);
+  color: var(--paper);
+  font-family: "Space Mono", monospace;
+  font-size: clamp(0.78rem, 1.4vw, 0.95rem);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--paper);
+}
+
+/* ===== Fenêtre terminal ===== */
+.term {
+  position: relative;
+  height: 100%;
+  max-width: 62rem;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.55);
+}
+
+/* léger effet CRT : scanlines à peine visibles */
+.term::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0 2px,
+    rgba(255, 255, 255, 0.012) 2px 3px
+  );
+}
+
+.term-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.6rem 0.9rem;
+  border-bottom: 1px solid var(--border);
+  background: rgba(242, 239, 232, 0.03);
+  flex-shrink: 0;
+}
+
+.dots {
+  display: flex;
+  gap: 7px;
+}
+
+.dots i {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--muted);
+}
+
+.dots i:nth-child(1) { background: var(--accent); }
+.dots i:nth-child(2) { background: var(--paper); opacity: 0.55; }
+.dots i:nth-child(3) { background: var(--muted); }
+
+.dots-filler {
+  width: 47px; /* même largeur que .dots, pour centrer le titre */
+}
+
+.term-title {
+  flex: 1;
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ===== Zone défilante ===== */
+.term-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem 1.1rem 1.4rem;
+}
+
+.term-out .ln {
+  white-space: pre-wrap;
+  word-break: break-word;
+  min-height: 1.55em; /* garde les lignes vides à hauteur réelle */
+}
+
+/* la bannière ASCII garde ses espaces et peut défiler horizontalement */
+.ln.banner {
+  white-space: pre;
+  overflow-x: auto;
+  color: var(--accent);
+  font-size: clamp(0.42rem, 1.8vw, 0.88rem);
+  line-height: 1.25;
+  min-height: 0;
+}
+
+.prompt {
+  color: var(--accent);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.dim {
+  color: var(--border);
+}
+
+.term-out a {
+  color: var(--paper);
+  text-decoration: underline;
+  text-decoration-color: var(--accent-dim);
+  text-underline-offset: 3px;
+}
+
+.term-out a:hover {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
+
+/* ===== Ligne de saisie ===== */
+.term-in {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7ch;
+  margin-top: 0.4rem;
+}
+
+.term-in .prompt {
+  flex-shrink: 0;
+}
+
+#termInput {
+  flex: 1;
+  min-width: 0;
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--paper);
+  font: inherit;
+  caret-color: var(--accent);
+  padding: 0;
+}
+
+/* ===== Sans JS ===== */
+.nojs {
+  max-width: 46rem;
+  margin: 4rem auto;
+  padding: 0 1.25rem;
+  line-height: 1.7;
+}
+
+.nojs a {
+  color: var(--accent);
+}
+
+/* ===== Barre de défilement (Webkit) ===== */
+.term-scroll::-webkit-scrollbar {
+  width: 9px;
+}
+
+.term-scroll::-webkit-scrollbar-thumb {
+  background: var(--border);
+}
+
+.term-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
+}
+
+.term-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
