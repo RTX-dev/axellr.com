@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Axel Leroy — Étudiant en L2 Informatique. Développeur FullStack & Cybersécurité. Brest." />
+  <title>Axel Leroy — Portfolio</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23131210'/><text x='50' y='72' font-size='58' text-anchor='middle' fill='%23f2efe8' font-family='monospace' font-weight='bold'>AL</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400..900&family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=2" />
+</head>
+<body class="loading">
+
+  <!-- ===== Icônes SVG réutilisables (sprite) ===== -->
+  <svg style="display: none" aria-hidden="true">
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></symbol>
+    <symbol id="i-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.7-.9L9.6 3.9A2 2 0 0 0 7.9 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></symbol>
+  </svg>
+
+  <!-- ===== Preloader ===== -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-center">
+      <div class="preloader-name" aria-hidden="true">
+        <span class="pl-letter">A</span><span class="pl-letter">X</span><span class="pl-letter">E</span><span class="pl-letter">L</span>
+        <span class="pl-gap"></span>
+        <span class="pl-letter">L</span><span class="pl-letter">E</span><span class="pl-letter">R</span><span class="pl-letter">O</span><span class="pl-letter">Y</span>
+      </div>
+      <p class="preloader-sub">Portfolio — 2026</p>
+    </div>
+    <div class="preloader-count"><span id="plCount">0</span>%</div>
+  </div>
+
+  <!-- ===== Curseur personnalisé ===== -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- ===== Barre de progression ===== -->
+  <div class="progress-bar" id="progressBar"></div>
+
+  <!-- ===== Header ===== -->
+  <header class="header" id="header">
+    <a href="#accueil" class="logo" data-hover>
+      AXEL<span class="logo-sep">—</span>LEROY<span class="logo-year">/26</span>
+    </a>
+    <nav class="nav-desktop" aria-label="Navigation principale">
+      <a href="#a-propos" class="nav-link" data-hover><sup>01</sup>À propos</a>
+      <a href="#parcours" class="nav-link" data-hover><sup>02</sup>Parcours</a>
+      <a href="#competences" class="nav-link" data-hover><sup>03</sup>Compétences</a>
+      <a href="#projets" class="nav-link" data-hover><sup>04</sup>Projets</a>
+      <a href="#contact" class="nav-link" data-hover><sup>05</sup>Contact</a>
+    </nav>
+    <div class="header-right">
+      <span class="status"><i class="status-dot"></i>Disponible en stage</span>
+      <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== Menu mobile ===== -->
+  <div class="menu-overlay" id="menuOverlay">
+    <nav class="menu-links" aria-label="Menu mobile">
+      <a href="#a-propos" class="menu-link"><sup>01</sup>À propos</a>
+      <a href="#parcours" class="menu-link"><sup>02</sup>Parcours</a>
+      <a href="#competences" class="menu-link"><sup>03</sup>Compétences</a>
+      <a href="#projets" class="menu-link"><sup>04</sup>Projets</a>
+      <a href="#contact" class="menu-link"><sup>05</sup>Contact</a>
+    </nav>
+    <div class="menu-footer">
+      <a href="mailto:axell29@protonmail.com">axell29@protonmail.com</a>
+      <div class="menu-social">
+        <a href="https://gitlab.com/axellr" target="_blank" rel="noopener">GitLab</a>
+        <a href="https://linkedin.com/in/axel-leroy-it" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- ===== Hero ===== -->
+    <section class="hero" id="accueil">
+      <div class="hero-topline">
+        <span class="mono-label">Portfolio © 2026</span>
+        <span class="mono-label">Brest — France</span>
+      </div>
+
+      <h1 class="hero-title">
+        <span class="mask"><span class="mask-inner">AXEL</span></span>
+        <span class="mask"><span class="mask-inner outline">LEROY<em class="serif">développeur</em></span></span>
+      </h1>
+
+      <div class="hero-bottom">
+        <p class="hero-desc">
+          Étudiant en <strong>L2 Informatique</strong>, je conçois des applications web
+          performantes et sécurisées — du back-end au front. Passionné par le code,
+          les réseaux et l'intelligence artificielle.
+        </p>
+        <div class="hero-ctas">
+          <a href="#projets" class="btn magnetic" data-hover>
+            <span class="btn-fill"></span>
+            <span class="btn-text">Voir mes projets</span>
+          </a>
+          <a href="#contact" class="btn btn-dark magnetic" data-hover>
+            <span class="btn-fill"></span>
+            <span class="btn-text">Me contacter</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-star" id="heroStar" aria-hidden="true">
+        <svg viewBox="0 0 100 100" width="100%" height="100%">
+          <path d="M50 0 L57 43 L100 50 L57 57 L50 100 L43 57 L0 50 L43 43 Z" fill="currentColor"/>
+        </svg>
+      </div>
+
+      <div class="hero-scroll mono-label" data-hover>
+        <span class="scroll-track"><span class="scroll-dot"></span></span>
+        Scroll
+      </div>
+    </section>
+
+    <!-- ===== À propos ===== -->
+    <section class="section" id="a-propos">
+      <div class="section-head">
+        <span class="mono-label">( 01 )</span>
+        <h2 class="section-title">
+          <span class="mask"><span class="mask-inner">À PROPOS</span></span>
+        </h2>
+      </div>
+      <div class="about-grid">
+        <p class="about-lead" data-reveal>
+          Après un <strong>BTS SIO option SLAM</strong> obtenu à l'AFTEC de Rennes,
+          j'ai poursuivi en <strong>Licence 2 Informatique</strong> pour approfondir
+          l'algorithmique, le développement logiciel et les systèmes.
+        </p>
+        <div class="about-col">
+          <p class="about-text" data-reveal>
+            Mon objectif : devenir un développeur fullstack capable de créer des
+            applications performantes et sécurisées, avec un fort intérêt pour la
+            cybersécurité et l'intelligence artificielle.
+          </p>
+          <p class="about-text" data-reveal>
+            En dehors du code, on me trouve à la salle de sport, derrière un écran
+            de jeu ou un volant.
+          </p>
+        </div>
+      </div>
+      <div class="stats">
+        <div class="stat" data-reveal>
+          <span class="stat-value"><span data-count="3">0</span></span>
+          <span class="stat-label">diplômes &amp; formations</span>
+        </div>
+        <div class="stat" data-reveal>
+          <span class="stat-value"><span data-count="6">0</span>+</span>
+          <span class="stat-label">projets réalisés</span>
+        </div>
+        <div class="stat" data-reveal>
+          <span class="stat-value"><span data-count="2">0</span></span>
+          <span class="stat-label">stages en entreprise</span>
+        </div>
+        <div class="stat" data-reveal>
+          <span class="stat-value"><span data-count="3">0</span></span>
+          <span class="stat-label">certifications Cisco</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Parcours ===== -->
+    <section class="section section-ink" id="parcours">
+      <div class="section-head">
+        <span class="mono-label">( 02 )</span>
+        <h2 class="section-title">
+          <span class="mask"><span class="mask-inner light-mask">PARCOURS</span></span>
+        </h2>
+      </div>
+
+      <div class="timeline">
+        <div class="tl-line" id="tlLine"></div>
+
+        <div class="tl-item" data-tl>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <span class="tl-date">2025 — en cours</span>
+            <h3>Licence Informatique — L2</h3>
+            <p class="tl-place">UBO — Université de Bretagne Occidentale · Brest</p>
+            <p>Approfondissement de l'algorithmique, de la programmation orientée objet, des bases de données et des systèmes d'exploitation.</p>
+          </div>
+        </div>
+
+        <div class="tl-item" data-tl>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <span class="tl-date">2023 — 2025</span>
+            <h3>BTS SIO — option SLAM</h3>
+            <p class="tl-place">AFTEC · Rennes</p>
+            <p>Services Informatiques aux Organisations, spécialité développement d'applications. Épreuve E5 validée — session 2025.</p>
+          </div>
+        </div>
+
+        <div class="tl-item" data-tl>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <span class="tl-date">2024 — 2025</span>
+            <h3>Stages — LERY Technologie</h3>
+            <p class="tl-place">Cesson-Sévigné</p>
+            <ul class="tl-list">
+              <li><strong>Stagiaire Développeur PHP</strong> — Laravel &amp; MySQL : pages dynamiques, composants réutilisables, formulaire de contact, agent IA basé sur Ollama.</li>
+              <li><strong>Stage Support Informatique</strong> — support N1/N2, postes Windows, tickets GLPI, application de gestion de produits médicaux, mise en place de GPO.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tl-item" data-tl>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <span class="tl-date">2019 — 2022</span>
+            <h3>Bac Pro Systèmes Numériques</h3>
+            <p class="tl-place">Diplôme obtenu en 2022</p>
+            <p>Systèmes numériques, réseaux informatiques et électronique.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="certs" data-reveal>
+        <p class="mono-label">Certifications — Cisco Networking Academy</p>
+        <div class="certs-list">
+          <div class="cert-row" data-hover>
+            <span class="cert-num">C—01</span>
+            <span class="cert-name">Networking Basics</span>
+            <span class="cert-check"><svg width="16" height="16"><use href="#i-check"/></svg></span>
+          </div>
+          <div class="cert-row" data-hover>
+            <span class="cert-num">C—02</span>
+            <span class="cert-name">Networking Devices &amp; Basic Configuration</span>
+            <span class="cert-check"><svg width="16" height="16"><use href="#i-check"/></svg></span>
+          </div>
+          <div class="cert-row" data-hover>
+            <span class="cert-num">C—03</span>
+            <span class="cert-name">Network Addressing &amp; Basic Troubleshooting</span>
+            <span class="cert-check"><svg width="16" height="16"><use href="#i-check"/></svg></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Compétences ===== -->
+    <section class="section" id="competences">
+      <div class="section-head">
+        <span class="mono-label">( 03 )</span>
+        <h2 class="section-title">
+          <span class="mask"><span class="mask-inner">COMPÉTENCES</span></span>
+        </h2>
+      </div>
+
+      <!-- Dossier ouvert — arborescence -->
+      <div class="explorer">
+        <span class="explorer-tab mono-label">Dossier ouvert — lecture seule</span>
+        <div class="explorer-bar">
+          <div class="explorer-squares" aria-hidden="true"><span></span><span></span><span></span></div>
+          <span class="explorer-path">axel-leroy/compétences/</span>
+          <span class="explorer-meta mono-label">4 dossiers — 18 fichiers</span>
+        </div>
+        <div class="explorer-body">
+          <ul class="tree">
+            <li class="tree-root">
+              <span class="tree-icon-root"><svg width="16" height="16"><use href="#i-folder"/></svg></span>
+              axel-leroy/
+            </li>
+
+            <li class="tree-folder open">
+              <button class="tree-toggle" aria-expanded="true" data-hover>
+                <span class="tree-caret"><svg width="13" height="13"><use href="#i-caret"/></svg></span>
+                <span class="tree-icon"><svg width="15" height="15"><use href="#i-folder"/></svg></span>
+                <span class="tree-folder-name">developpement/</span>
+                <span class="tree-count mono-label">5</span>
+              </button>
+              <div class="tree-children">
+                <ul>
+                  <li class="tree-file"><span class="f-name">javascript</span><span class="f-ext">.ts</span><span class="f-note">// principal</span></li>
+                  <li class="tree-file"><span class="f-name">php</span><span class="f-ext">.php</span><span class="f-note">// back-end</span></li>
+                  <li class="tree-file"><span class="f-name">python</span><span class="f-ext">.py</span><span class="f-note">// scripts &amp; ia</span></li>
+                  <li class="tree-file"><span class="f-name">html-css</span><span class="f-ext">.css</span><span class="f-note">// la base</span></li>
+                  <li class="tree-file"><span class="f-name">sql</span><span class="f-ext">.sql</span><span class="f-note">// requêtes</span></li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="tree-folder open">
+              <button class="tree-toggle" aria-expanded="true" data-hover>
+                <span class="tree-caret"><svg width="13" height="13"><use href="#i-caret"/></svg></span>
+                <span class="tree-icon"><svg width="15" height="15"><use href="#i-folder"/></svg></span>
+                <span class="tree-folder-name">frameworks-outils/</span>
+                <span class="tree-count mono-label">5</span>
+              </button>
+              <div class="tree-children">
+                <ul>
+                  <li class="tree-file"><span class="f-name">laravel</span><span class="f-ext">.php</span><span class="f-note">// préféré</span></li>
+                  <li class="tree-file"><span class="f-name">react</span><span class="f-ext">.jsx</span><span class="f-note">// front</span></li>
+                  <li class="tree-file"><span class="f-name">node</span><span class="f-ext">.js</span><span class="f-note">// bots</span></li>
+                  <li class="tree-file"><span class="f-name">git</span><span class="f-ext">.md</span><span class="f-note">// daily</span></li>
+                  <li class="tree-file"><span class="f-name">docker</span><span class="f-ext">.yml</span><span class="f-note">// conteneurs</span></li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="tree-folder open">
+              <button class="tree-toggle" aria-expanded="true" data-hover>
+                <span class="tree-caret"><svg width="13" height="13"><use href="#i-caret"/></svg></span>
+                <span class="tree-icon"><svg width="15" height="15"><use href="#i-folder"/></svg></span>
+                <span class="tree-folder-name">bases-de-donnees/</span>
+                <span class="tree-count mono-label">3</span>
+              </button>
+              <div class="tree-children">
+                <ul>
+                  <li class="tree-file"><span class="f-name">mysql</span><span class="f-ext">.db</span><span class="f-note">// sgbd</span></li>
+                  <li class="tree-file"><span class="f-name">modelisation</span><span class="f-ext">.mcd</span><span class="f-note">// mcd / mld</span></li>
+                  <li class="tree-file"><span class="f-name">requetes</span><span class="f-ext">.sql</span><span class="f-note">// jointures</span></li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="tree-folder open">
+              <button class="tree-toggle" aria-expanded="true" data-hover>
+                <span class="tree-caret"><svg width="13" height="13"><use href="#i-caret"/></svg></span>
+                <span class="tree-icon"><svg width="15" height="15"><use href="#i-folder"/></svg></span>
+                <span class="tree-folder-name">systemes-reseaux/</span>
+                <span class="tree-count mono-label">5</span>
+              </button>
+              <div class="tree-children">
+                <ul>
+                  <li class="tree-file"><span class="f-name">linux</span><span class="f-ext">.sh</span><span class="f-note">// shell</span></li>
+                  <li class="tree-file"><span class="f-name">windows-server</span><span class="f-ext">.ps1</span><span class="f-note">// admin</span></li>
+                  <li class="tree-file"><span class="f-name">glpi</span><span class="f-ext">.conf</span><span class="f-note">// tickets</span></li>
+                  <li class="tree-file"><span class="f-name">gpo</span><span class="f-ext">.adm</span><span class="f-note">// domaine</span></li>
+                  <li class="tree-file"><span class="f-name">cybersecurite</span><span class="f-ext">.lock</span><span class="f-note">// en cours</span></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Projets ===== -->
+    <section class="section" id="projets">
+      <div class="section-head">
+        <span class="mono-label">( 04 )</span>
+        <h2 class="section-title">
+          <span class="mask"><span class="mask-inner">PROJETS</span></span>
+        </h2>
+      </div>
+
+      <p class="projects-lead" data-reveal>
+        Une sélection de réalisations — du bot Discord à l'agent IA.
+        Survolez une ligne pour le détail.
+      </p>
+
+      <div class="projects-list">
+
+        <article class="p-row">
+          <a class="p-row-head" href="https://axellr.netlify.app" target="_blank" rel="noopener" data-hover>
+            <span class="p-row-num">P—01</span>
+            <h3 class="p-row-title">Portfolio</h3>
+            <span class="p-row-link"><svg width="20" height="20"><use href="#i-external"/></svg></span>
+          </a>
+          <div class="p-row-body">
+            <div class="p-row-body-inner">
+              <p class="p-row-desc">Site web professionnel pour présenter mes compétences et mes réalisations. Design moderne et responsive avec animations fluides.</p>
+              <div class="p-row-tags"><span>React</span><span>HTML</span><span>CSS</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="p-row">
+          <a class="p-row-head" href="https://gitlab.com/axellr" target="_blank" rel="noopener" data-hover>
+            <span class="p-row-num">P—02</span>
+            <h3 class="p-row-title">Agent IA — Ollama</h3>
+            <span class="p-row-link"><svg width="20" height="20"><use href="#i-external"/></svg></span>
+          </a>
+          <div class="p-row-body">
+            <div class="p-row-body-inner">
+              <p class="p-row-desc">IA personnalisée pour fournir des conseils de conduite adaptés aux données utilisateur. Preprocessing et tests d'utilisabilité.</p>
+              <div class="p-row-tags"><span>Python</span><span>Ollama</span><span>IA</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="p-row">
+          <a class="p-row-head" href="https://gitlab.com/axellr" target="_blank" rel="noopener" data-hover>
+            <span class="p-row-num">P—03</span>
+            <h3 class="p-row-title">Application Laravel</h3>
+            <span class="p-row-link"><svg width="20" height="20"><use href="#i-external"/></svg></span>
+          </a>
+          <div class="p-row-body">
+            <div class="p-row-body-inner">
+              <p class="p-row-desc">Application web de gestion : gestion des utilisateurs, authentification sécurisée et interface d'administration.</p>
+              <div class="p-row-tags"><span>PHP</span><span>Laravel</span><span>MySQL</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="p-row">
+          <a class="p-row-head" href="https://gitlab.com/axellr/app_natation_axell" target="_blank" rel="noopener" data-hover>
+            <span class="p-row-num">P—04</span>
+            <h3 class="p-row-title">Suivi sportif — Natation</h3>
+            <span class="p-row-link"><svg width="20" height="20"><use href="#i-external"/></svg></span>
+          </a>
+          <div class="p-row-body">
+            <div class="p-row-body-inner">
+              <p class="p-row-desc">Application de suivi sportif avec gestion des programmes d'entraînement.</p>
+              <div class="p-row-tags"><span>Web</span><span>Gestion</span><span>Sport</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="p-row">
+          <a class="p-row-head" href="https://gitlab.com/axellr" target="_blank" rel="noopener" data-hover>
+            <span class="p-row-num">P—05</span>
+            <h3 class="p-row-title">Bot Discord</h3>
+            <span class="p-row-link"><svg width="20" height="20"><use href="#i-external"/></svg></span>
+          </a>
+          <div class="p-row-body">
+            <div class="p-row-body-inner">
+              <p class="p-row-desc">Bot multi-fonctionnel pour la gestion et la modération de serveurs : commandes personnalisées, système de logs et automatisation.</p>
+              <div class="p-row-tags"><span>JavaScript</span><span>Node.js</span><span>API</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="p-row">
+          <a class="p-row-head" href="https://gitlab.com/axellr" target="_blank" rel="noopener" data-hover>
+            <span class="p-row-num">P—06</span>
+            <h3 class="p-row-title">Gestion produits médicaux</h3>
+            <span class="p-row-link"><svg width="20" height="20"><use href="#i-external"/></svg></span>
+          </a>
+          <div class="p-row-body">
+            <div class="p-row-body-inner">
+              <p class="p-row-desc">Logiciel gérant les bons de commande d'envoi pour un hôpital, avec mise en place de GPO.</p>
+              <div class="p-row-tags"><span>PHP</span><span>Windows Server</span><span>GPO</span></div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===== Contact ===== -->
+    <section class="section section-contact" id="contact">
+      <div class="section-head">
+        <span class="mono-label">( 05 )</span>
+      </div>
+      <a href="mailto:axell29@protonmail.com" class="contact-giant" data-hover>
+        <span class="mask"><span class="mask-inner">TRAVAILLONS</span></span>
+        <span class="mask"><span class="mask-inner outline">ENSEMBLE</span></span>
+      </a>
+      <div class="contact-info">
+        <a href="mailto:axell29@protonmail.com" class="contact-line" data-hover>
+          <span class="mono-label">Email</span>
+          <span class="contact-value">axell29@protonmail.com</span>
+        </a>
+        <a href="https://linkedin.com/in/axel-leroy-it" target="_blank" rel="noopener" class="contact-line" data-hover>
+          <span class="mono-label">LinkedIn</span>
+          <span class="contact-value">axel-leroy-it</span>
+        </a>
+        <a href="https://gitlab.com/axellr" target="_blank" rel="noopener" class="contact-line" data-hover>
+          <span class="mono-label">GitLab</span>
+          <span class="contact-value">gitlab.com/axellr</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="mono-label">© <span id="year">2026</span> — Axel Leroy</span>
+      <span class="mono-label">Brest, FR — <span id="clock">00:00:00</span></span>
+      <a href="mentions.html" class="footer-link mono-label" data-hover>Mentions légales</a>
+      <a href="#accueil" class="footer-top mono-label" data-hover>
+        Retour en haut
+        <svg width="14" height="14"><use href="#i-arrow-up"/></svg>
+      </a>
+    </div>
+  </footer>
+
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script defer src="js/common.js"></script>
+  <script defer src="js/main.js?v=3"></script>
+</body>
+</html>
