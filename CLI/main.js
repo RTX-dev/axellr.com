@@ -195,8 +195,8 @@
     whoami: function () {
       lines([
         "axel leroy — étudiant en l2 informatique, brest (ubo).",
-        "essaie d'être un bon dev : du back-end au front, avec un",
-        "faible pour les systèmes, les réseaux et la sécurité.",
+        "linux user : du back-end au front, avec un faible pour",
+        "les systèmes, les réseaux et la sécurité.",
         "hors code : salle de sport, écran de jeu, volant."
       ]);
     },
