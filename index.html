@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400..900&family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css?v=2" />
 </head>
-<body class="loading">
+<body>
 
   <!-- ===== Icônes SVG réutilisables (sprite) ===== -->
   <svg style="display: none" aria-hidden="true">
@@ -21,26 +21,6 @@
     <symbol id="i-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></symbol>
     <symbol id="i-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></symbol>
   </svg>
-
-  <!-- ===== Preloader ===== -->
-  <div class="preloader" id="preloader">
-    <div class="preloader-center">
-      <div class="preloader-name" aria-hidden="true">
-        <span class="pl-letter">A</span><span class="pl-letter">X</span><span class="pl-letter">E</span><span class="pl-letter">L</span>
-        <span class="pl-gap"></span>
-        <span class="pl-letter">L</span><span class="pl-letter">E</span><span class="pl-letter">R</span><span class="pl-letter">O</span><span class="pl-letter">Y</span>
-      </div>
-      <p class="preloader-sub">Portfolio — 2026</p>
-    </div>
-    <div class="preloader-count"><span id="plCount">0</span>%</div>
-  </div>
-
-  <!-- ===== Curseur personnalisé ===== -->
-  <div class="cursor-dot" id="cursorDot"></div>
-  <div class="cursor-ring" id="cursorRing"></div>
-
-  <!-- ===== Barre de progression ===== -->
-  <div class="progress-bar" id="progressBar"></div>
 
   <!-- ===== Header ===== -->
   <header class="header" id="header">
@@ -55,7 +35,6 @@
       <a href="#contact" class="nav-link" data-hover><sup>05</sup>Contact</a>
     </nav>
     <div class="header-right">
-      <span class="status"><i class="status-dot"></i>Disponible en stage</span>
       <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
         <span></span><span></span>
       </button>
@@ -86,12 +65,11 @@
     <section class="hero" id="accueil">
       <div class="hero-topline">
         <span class="mono-label">Portfolio © 2026</span>
-        <span class="mono-label">Brest — France</span>
       </div>
 
       <h1 class="hero-title">
         <span class="mask"><span class="mask-inner">AXEL</span></span>
-        <span class="mask"><span class="mask-inner outline">LEROY<em class="serif">développeur</em></span></span>
+        <span class="mask"><span class="mask-inner outline">LEROY<em class="serif">essaie d'être un bon dev</em></span></span>
       </h1>
 
       <div class="hero-bottom">
@@ -150,24 +128,6 @@
           </p>
         </div>
       </div>
-      <div class="stats">
-        <div class="stat" data-reveal>
-          <span class="stat-value"><span data-count="3">0</span></span>
-          <span class="stat-label">diplômes &amp; formations</span>
-        </div>
-        <div class="stat" data-reveal>
-          <span class="stat-value"><span data-count="6">0</span>+</span>
-          <span class="stat-label">projets réalisés</span>
-        </div>
-        <div class="stat" data-reveal>
-          <span class="stat-value"><span data-count="2">0</span></span>
-          <span class="stat-label">stages en entreprise</span>
-        </div>
-        <div class="stat" data-reveal>
-          <span class="stat-value"><span data-count="3">0</span></span>
-          <span class="stat-label">certifications Cisco</span>
-        </div>
-      </div>
     </section>
 
     <!-- ===== Parcours ===== -->
@@ -206,12 +166,19 @@
           <div class="tl-dot"></div>
           <div class="tl-content">
             <span class="tl-date">2024 — 2025</span>
-            <h3>Stages — LERY Technologie</h3>
+            <h3>Stagiaire Développeur PHP — <a href="https://lery.cc" target="_blank" rel="noopener">LERY Technologie</a></h3>
             <p class="tl-place">Cesson-Sévigné</p>
-            <ul class="tl-list">
-              <li><strong>Stagiaire Développeur PHP</strong> — Laravel &amp; MySQL : pages dynamiques, composants réutilisables, formulaire de contact, agent IA basé sur Ollama.</li>
-              <li><strong>Stage Support Informatique</strong> — support N1/N2, postes Windows, tickets GLPI, application de gestion de produits médicaux, mise en place de GPO.</li>
-            </ul>
+            <p>Laravel &amp; MySQL : pages dynamiques, composants réutilisables, formulaire de contact, agent IA basé sur Ollama.</p>
+          </div>
+        </div>
+
+        <div class="tl-item" data-tl>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <span class="tl-date">2024 — 2025</span>
+            <h3>Stage Support Informatique — <a href="https://www.b2-impact.fr" target="_blank" rel="noopener">B2impact</a></h3>
+            <p class="tl-place">Landerneau</p>
+            <p>Support N1/N2, postes Windows, tickets GLPI, application de gestion de produits médicaux, mise en place de GPO.</p>
           </div>
         </div>
 
@@ -259,7 +226,7 @@
 
       <!-- Dossier ouvert — arborescence -->
       <div class="explorer">
-        <span class="explorer-tab mono-label">Dossier ouvert — lecture seule</span>
+        <span class="explorer-tab mono-label">axel.skills — lecture seule</span>
         <div class="explorer-bar">
           <div class="explorer-squares" aria-hidden="true"><span></span><span></span><span></span></div>
           <span class="explorer-path">axel-leroy/compétences/</span>
@@ -355,11 +322,6 @@
         </h2>
       </div>
 
-      <p class="projects-lead" data-reveal>
-        Une sélection de réalisations — du bot Discord à l'agent IA.
-        Survolez une ligne pour le détail.
-      </p>
-
       <div class="projects-list">
 
         <article class="p-row">
@@ -391,22 +353,8 @@
         </article>
 
         <article class="p-row">
-          <a class="p-row-head" href="https://gitlab.com/axellr" target="_blank" rel="noopener" data-hover>
+          <a class="p-row-head" href="https://github.com/RTX-dev/app_natation_axell" target="_blank" rel="noopener" data-hover>
             <span class="p-row-num">P—03</span>
-            <h3 class="p-row-title">Application Laravel</h3>
-            <span class="p-row-link"><svg width="20" height="20"><use href="#i-external"/></svg></span>
-          </a>
-          <div class="p-row-body">
-            <div class="p-row-body-inner">
-              <p class="p-row-desc">Application web de gestion : gestion des utilisateurs, authentification sécurisée et interface d'administration.</p>
-              <div class="p-row-tags"><span>PHP</span><span>Laravel</span><span>MySQL</span></div>
-            </div>
-          </div>
-        </article>
-
-        <article class="p-row">
-          <a class="p-row-head" href="https://gitlab.com/axellr/app_natation_axell" target="_blank" rel="noopener" data-hover>
-            <span class="p-row-num">P—04</span>
             <h3 class="p-row-title">Suivi sportif — Natation</h3>
             <span class="p-row-link"><svg width="20" height="20"><use href="#i-external"/></svg></span>
           </a>
@@ -419,8 +367,8 @@
         </article>
 
         <article class="p-row">
-          <a class="p-row-head" href="https://gitlab.com/axellr" target="_blank" rel="noopener" data-hover>
-            <span class="p-row-num">P—05</span>
+          <a class="p-row-head" href="https://github.com/RTX-dev/bot-discord" target="_blank" rel="noopener" data-hover>
+            <span class="p-row-num">P—04</span>
             <h3 class="p-row-title">Bot Discord</h3>
             <span class="p-row-link"><svg width="20" height="20"><use href="#i-external"/></svg></span>
           </a>
@@ -433,9 +381,9 @@
         </article>
 
         <article class="p-row">
-          <a class="p-row-head" href="https://gitlab.com/axellr" target="_blank" rel="noopener" data-hover>
-            <span class="p-row-num">P—06</span>
-            <h3 class="p-row-title">Gestion produits médicaux</h3>
+          <a class="p-row-head" href="https://github.com/RTX-dev/erp-axel" target="_blank" rel="noopener" data-hover>
+            <span class="p-row-num">P—05</span>
+            <h3 class="p-row-title">Module ERP — Produits médicaux</h3>
             <span class="p-row-link"><svg width="20" height="20"><use href="#i-external"/></svg></span>
           </a>
           <div class="p-row-body">
@@ -454,10 +402,6 @@
       <div class="section-head">
         <span class="mono-label">( 05 )</span>
       </div>
-      <a href="mailto:axell29@protonmail.com" class="contact-giant" data-hover>
-        <span class="mask"><span class="mask-inner">TRAVAILLONS</span></span>
-        <span class="mask"><span class="mask-inner outline">ENSEMBLE</span></span>
-      </a>
       <div class="contact-info">
         <a href="mailto:axell29@protonmail.com" class="contact-line" data-hover>
           <span class="mono-label">Email</span>

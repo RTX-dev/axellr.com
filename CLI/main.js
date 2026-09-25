@@ -116,45 +116,35 @@
       urlLabel: "gitlab.com/axellr",
       alias: "ollama"
     },
-    "laravel": {
-      num: "p—03",
-      title: "application laravel",
-      tags: "php · laravel · mysql",
-      desc: "application web de gestion : utilisateurs, authentification\n" +
-            "sécurisée, interface d'administration. le genre de projet\n" +
-            "de bts dont on ressort en sachant vraiment faire des choses.",
-      url: "https://gitlab.com/axellr",
-      urlLabel: "gitlab.com/axellr"
-    },
     "natation": {
-      num: "p—04",
+      num: "p—03",
       title: "suivi sportif — natation",
       tags: "web · gestion · sport",
       desc: "application de suivi sportif avec gestion des programmes\n" +
             "d'entraînement. un projet perso, utile d'abord pour\n" +
             "celui qui le code.",
-      url: "https://gitlab.com/axellr/app_natation_axell",
-      urlLabel: "gitlab.com/axellr/app_natation_axell"
+      url: "https://github.com/RTX-dev/app_natation_axell",
+      urlLabel: "github.com/RTX-dev/app_natation_axell"
     },
     "discord": {
-      num: "p—05",
+      num: "p—04",
       title: "bot discord",
       tags: "javascript · node.js · api",
       desc: "bot multi-fonctionnel pour la gestion et la modération de\n" +
             "serveurs : commandes personnalisées, système de logs,\n" +
             "automatisation.",
-      url: "https://gitlab.com/axellr",
-      urlLabel: "gitlab.com/axellr"
+      url: "https://github.com/RTX-dev/bot-discord",
+      urlLabel: "github.com/RTX-dev/bot-discord"
     },
     "medical": {
-      num: "p—06",
-      title: "gestion produits médicaux",
+      num: "p—05",
+      title: "module erp — produits médicaux",
       tags: "php · windows server · gpo",
-      desc: "logiciel gérant les bons de commande d'envoi pour un\n" +
-            "hôpital, déployé pendant mon stage, avec mise en place\n" +
+      desc: "module d'un erp gérant les bons de commande d'envoi pour\n" +
+            "un hôpital, déployé pendant mon stage, avec mise en place\n" +
             "de gpo. pas glamour, mais réel — et en production.",
-      url: "https://gitlab.com/axellr",
-      urlLabel: "gitlab.com/axellr",
+      url: "https://github.com/RTX-dev/erp-axel",
+      urlLabel: "github.com/RTX-dev/erp-axel",
       alias: "hopital"
     }
   };
@@ -202,11 +192,9 @@
     whoami: function () {
       lines([
         "axel leroy — étudiant en l2 informatique, brest (ubo).",
-        "développeur fullstack en devenir : du back-end au front, avec un",
+        "essaie d'être un bon dev : du back-end au front, avec un",
         "faible pour les systèmes, les réseaux et la sécurité.",
-        "hors code : salle de sport, écran de jeu, volant.",
-        "",
-        "statut : disponible pour un stage → tapez `contact`"
+        "hors code : salle de sport, écran de jeu, volant."
       ]);
     },
 
@@ -215,9 +203,13 @@
         "2025 — en cours    licence informatique l2 — ubo, brest",
         "                   algorithmique, poo, bases de données, systèmes",
         "",
-        "2024 — 2025        stages — lery technologie, cesson-sévigné",
-        "                   dev php : laravel & mysql, composants réutilisables,",
+        "2024 — 2025        stage dev php — lery technologie (lery.cc),",
+        "                   cesson-sévigné",
+        "                   laravel & mysql, composants réutilisables,",
         "                   formulaire de contact, agent ia branché sur ollama",
+        "",
+        "2024 — 2025        stage support info — b2impact (www.b2-impact.fr),",
+        "                   landerneau",
         "                   support n1/n2 : windows, glpi, gpo, et l'application",
         "                   de gestion de produits médicaux",
         "",
@@ -233,7 +225,7 @@
 
     skills: function () {
       lines([
-        "axel-leroy/skills/",
+        "axel.skills/",
         "├── developpement/       javascript · php · python · html-css · sql",
         "├── frameworks-outils/   laravel (préféré) · react · node.js · git · docker",
         "├── bases-de-donnees/    mysql · modélisation mcd/mld · requêtes",
@@ -245,13 +237,12 @@
       lines([
         "p—01  portfolio                 react, html, css",
         "p—02  agent ia — ollama         python, ollama",
-        "p—03  application laravel       php, laravel, mysql",
-        "p—04  suivi natation            web, gestion",
-        "p—05  bot discord               javascript, node.js",
-        "p—06  produits médicaux          php, windows server, gpo",
+        "p—03  suivi natation            web, gestion",
+        "p—04  bot discord               javascript, node.js",
+        "p—05  module erp — médical     php, windows server, gpo",
         "",
         "détail d'un projet : cat <nom> — ex : cat discord",
-        "noms courts : portfolio, ia, laravel, natation, discord, medical"
+        "noms courts : portfolio, ia, natation, discord, medical"
       ]);
     },
 
@@ -315,8 +306,7 @@
         "shell     : ce portfolio-ci",
         "langages  : php · js · python · sql · html-css",
         "réseaux   : 3 certifications cisco",
-        "uptime    : depuis le bac pro 2019",
-        "statut    : disponible pour un stage"
+        "uptime    : depuis le bac pro 2019"
       ]);
     },
 
@@ -479,7 +469,7 @@
   echo("./portfolio.sh");
   blank();
   line(banner("AXEL"), "banner");
-  line("portfolio v2.0 — mode cli · axel leroy · brest, france", "muted");
+  line("portfolio v2.0 — mode cli · axel leroy", "muted");
   blank();
   lines([
     "bienvenue sur le portfolio d'axel leroy, en mode terminal.",
