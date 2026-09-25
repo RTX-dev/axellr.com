@@ -3,6 +3,8 @@
    Aucune dépendance. La sortie n'est construite qu'avec du
    contenu statique écrit ci-dessous ; ce que l'utilisateur
    tape est toujours inséré en textContent, jamais en HTML.
+   Seule exception : `ipconfig`, qui interroge api.ipify.org
+   pour afficher l'ip publique du visiteur — rien n'est stocké.
    ============================================================ */
 
 (function () {
@@ -180,12 +182,13 @@
         "  skills        l'arborescence des compétences (alias : competences)",
         "  projects      la liste des projets (alias : projets)",
         "  cat <nom>     détail d'un projet ou d'un fichier",
+        "  cowsay <txt>  la vache qui dit ce que vous voulez",
         "  certs         certifications cisco",
         "  contact       email & réseaux",
         "  graphique     la version classique du portfolio",
         "  clear         nettoie l'écran (ou ctrl+l)",
         "",
-        "et puis date, uptime, history, neofetch… le folklore du terminal."
+        "et puis date, uptime, ipconfig, history, neofetch… le folklore du terminal."
       ]);
     },
 
@@ -279,6 +282,33 @@
       line(new Date().toLocaleString("fr-FR", { dateStyle: "full", timeStyle: "medium" }));
     },
 
+    ipconfig: function () {
+      line("interrogation de api.ipify.org…", "muted");
+      fetch("https://api.ipify.org?format=json")
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+          var nav = "inconnu";
+          var ua = navigator.userAgent;
+          if (/edg/i.test(ua)) nav = "edge";
+          else if (/chrome/i.test(ua)) nav = "chrome";
+          else if (/firefox/i.test(ua)) nav = "firefox";
+          else if (/safari/i.test(ua)) nav = "safari";
+          lines([
+            "carte réseau eth0 (votre navigateur) :",
+            "",
+            "  adresse ipv4 publique . . . : " + d.ip,
+            "  navigateur  . . . . . . . . : " + nav,
+            "  passerelle . . . . . . . . . : le cloud",
+            "  dhcp . . . . . . . . . . . . : votre fai s'en occupe",
+            "",
+            "(vos données restent chez vous : rien n'est stocké ici)"
+          ]);
+        })
+        .catch(function () {
+          line("ipconfig : impossible de récupérer l'ip publique — hors ligne ?", "muted");
+        });
+    },
+
     uptime: function () {
       var s = Math.floor((Date.now() - bootTime) / 1000);
       var m = Math.floor(s / 60);
@@ -324,6 +354,8 @@
   COMMANDS.mail = COMMANDS.contact;
   COMMANDS.v1 = COMMANDS.graphique;
   COMMANDS.web = COMMANDS.graphique;
+  COMMANDS.ip = COMMANDS.ipconfig;
+  COMMANDS.ifconfig = COMMANDS.ipconfig;
 
   /* ---------- cat ---------- */
 
@@ -372,6 +404,45 @@
     linkLine("axell29@protonmail.com", "mailto:axell29@protonmail.com", "← écrivez-moi");
   }
 
+  /* ---------- cowsay ---------- */
+
+  function cowsay(text) {
+    if (!text) text = "moo. tapez `cowsay <message>` pour me faire dire quelque chose.";
+
+    /* retour à la ligne tous les 38 caractères, sans couper un mot */
+    var max = 38;
+    var rows = [];
+    var cur = "";
+    text.split(/\s+/).forEach(function (w) {
+      if (cur && (cur + " " + w).length > max) { rows.push(cur); cur = w; }
+      else { cur = cur ? cur + " " + w : w; }
+    });
+    if (cur) rows.push(cur);
+
+    var width = 0;
+    rows.forEach(function (r) { width = Math.max(width, r.length); });
+
+    var bar = "─".repeat(width + 2);
+    line(" " + bar);
+    if (rows.length === 1) {
+      line("< " + rows[0] + " >");
+    } else {
+      rows.forEach(function (r, i) {
+        var left = i === 0 ? "/" : "|";
+        var right = i === rows.length - 1 ? "\\" : "|";
+        line(left + " " + r + " ".repeat(width - r.length) + " " + right);
+      });
+    }
+    line(" " + bar);
+    lines([
+      "        \\   ^__^",
+      "         \\  (oo)\\_______",
+      "            (__)\\       )\\/\\",
+      "                ||----w |",
+      "                ||     ||"
+    ]);
+  }
+
   /* ---------- interpréteur ---------- */
 
   function run(cmdRaw) {
@@ -386,6 +457,8 @@
 
       if (name === "sudo") {
         sudo(arg);
+      } else if (name === "cowsay") {
+        cowsay(arg);
       } else if (name === "cat") {
         cat(arg.toLowerCase());
       } else if (COMMANDS[name]) {
