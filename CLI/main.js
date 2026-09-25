@@ -258,8 +258,9 @@
     contact: function () {
       lines(["pour un stage, un projet, ou juste une question :"]);
       linkLine("axell29@protonmail.com", "mailto:axell29@protonmail.com", "← email");
-      linkLine("gitlab.com/axellr", "https://gitlab.com/axellr", "← code", true);
+      linkLine("github.com/RTX-dev", "https://github.com/RTX-dev", "← code", true);
       linkLine("linkedin.com/in/axel-leroy-it", "https://linkedin.com/in/axel-leroy-it", "← profil", true);
+      linkLine("gitlab.com/axellr", "https://gitlab.com/axellr", "← aussi là", true);
       blank();
       line("(version graphique du portfolio : `graphique`)", "muted");
     },
