@@ -13,10 +13,28 @@
   --accent: #e8490f;
   --line: rgba(19, 18, 16, 0.16);
   --line-light: rgba(242, 239, 232, 0.18);
+  --on-ink-55: rgba(242, 239, 232, 0.55);
+  --on-ink-60: rgba(242, 239, 232, 0.6);
+  --on-ink-72: rgba(242, 239, 232, 0.72);
   --font-display: "Archivo", sans-serif;
   --font-serif: "Instrument Serif", serif;
   --font-mono: "Space Mono", monospace;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ===== Thème sombre ===== */
+html[data-theme="dark"] {
+  --paper: #131210;
+  --paper-soft: #1e1c18;
+  --ink: #f2efe8;
+  --ink-soft: #b0ab9e;
+  --muted: #7d7869;
+  --accent: #ff5c22;
+  --line: rgba(242, 239, 232, 0.16);
+  --line-light: rgba(19, 18, 16, 0.18);
+  --on-ink-55: rgba(19, 18, 16, 0.55);
+  --on-ink-60: rgba(19, 18, 16, 0.6);
+  --on-ink-72: rgba(19, 18, 16, 0.72);
 }
 
 /* ===== Base ===== */
@@ -39,6 +57,7 @@ body {
   line-height: 1.6;
   overflow-x: clip;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.35s ease, color 0.35s ease;
 }
 
 
@@ -193,6 +212,36 @@ body::before {
 .cli-link:hover {
   background: #fff;
   color: var(--ink);
+}
+
+/* Bouton thème — soleil / lune */
+.theme-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.42rem 0.7rem;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 999px;
+  color: #fff;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.theme-btn:hover {
+  background: #fff;
+  color: var(--ink);
+}
+
+.theme-btn svg {
+  display: block;
+  width: 15px;
+  height: 15px;
+  opacity: 0.45;
+  transition: opacity 0.25s ease;
+}
+
+:root:not([data-theme="dark"]) .theme-btn .ico-sun,
+:root[data-theme="dark"] .theme-btn .ico-moon {
+  opacity: 1;
 }
 
 .burger {
@@ -361,22 +410,26 @@ body::before {
   flex-wrap: wrap;
 }
 
-/* Étoile rotative — le spin CSS tourne le SVG, GSAP anime le conteneur */
+/* Prompt terminal — chevron + curseur clignotant, GSAP anime le conteneur */
 .hero-star {
   position: absolute;
   top: 24vh;
   right: 6vw;
-  width: clamp(70px, 9vw, 130px);
+  font-family: var(--font-mono);
+  font-size: clamp(1.7rem, 3.5vw, 3rem);
+  font-weight: 700;
+  line-height: 1;
   color: var(--accent);
   pointer-events: none;
 }
 
-.hero-star svg {
-  animation: spin 14s linear infinite;
+.hero-cursor {
+  animation: cursorBlink 1.1s steps(1) infinite;
 }
 
-@keyframes spin {
-  to { transform: rotate(360deg); }
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 .hero-scroll {
@@ -517,7 +570,7 @@ body::before {
 }
 
 .section-ink .mono-label {
-  color: rgba(242, 239, 232, 0.55);
+  color: var(--on-ink-55);
 }
 
 .section-ink .section-head .mono-label {
@@ -585,12 +638,12 @@ body::before {
   font-family: var(--font-serif);
   font-style: italic;
   font-size: 1.05rem;
-  color: rgba(242, 239, 232, 0.6);
+  color: var(--on-ink-60);
   margin-bottom: 0.6rem;
 }
 
 .tl-content > p {
-  color: rgba(242, 239, 232, 0.72);
+  color: var(--on-ink-72);
   max-width: 60ch;
 }
 
@@ -602,7 +655,7 @@ body::before {
 }
 
 .tl-list li {
-  color: rgba(242, 239, 232, 0.72);
+  color: var(--on-ink-72);
   padding-left: 1.2rem;
   position: relative;
   max-width: 62ch;
@@ -798,7 +851,7 @@ body::before {
 }
 
 .tree-toggle:hover .tree-count {
-  color: rgba(242, 239, 232, 0.6);
+  color: var(--on-ink-60);
 }
 
 .tree-children {
@@ -855,7 +908,7 @@ body::before {
 }
 
 .tree-file:hover .f-note {
-  color: rgba(242, 239, 232, 0.55);
+  color: var(--on-ink-55);
 }
 
 /* ===== Projets — liste éditoriale ===== */
@@ -1105,7 +1158,7 @@ body::before {
     scroll-behavior: auto;
   }
 
-  .hero-star svg,
+  .hero-cursor,
   .scroll-dot {
     animation: none;
   }

@@ -68,9 +68,9 @@
       .from(".hero-ctas .btn", { y: 30, opacity: 0, duration: 0.8, stagger: 0.1 }, "-=0.7")
       .from(".hero-scroll", { opacity: 0, duration: 0.8 }, "-=0.5")
       .from(".hero-star", {
-        scale: 0,
-        rotation: -90,
-        duration: 1.2,
+        scale: 0.5,
+        opacity: 0,
+        duration: 1,
         ease: "back.out(1.6)"
       }, "-=1.1");
   }

@@ -25,6 +25,22 @@
   setInterval(tick, 1000);
   year.textContent = new Date().getFullYear();
 
+  /* ---------- Thème clair / sombre ---------- */
+  var themeBtn = document.getElementById("themeBtn");
+
+  if (themeBtn) {
+    themeBtn.addEventListener("click", function () {
+      var isDark = document.documentElement.dataset.theme === "dark";
+      if (isDark) {
+        delete document.documentElement.dataset.theme;
+        localStorage.setItem("theme", "light");
+      } else {
+        document.documentElement.dataset.theme = "dark";
+        localStorage.setItem("theme", "dark");
+      }
+    });
+  }
+
   /* ---------- Menu mobile ---------- */
   var burger = document.getElementById("burger");
   var overlay = document.getElementById("menuOverlay");
